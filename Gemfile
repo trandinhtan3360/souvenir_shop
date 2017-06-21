@@ -18,8 +18,9 @@ gem "will_paginate-bootstrap", "~> 1.0", ">= 1.0.1"
 gem "coffee-rails", "~> 4.2"
 gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
-gem "pg"
 gem "mysql2"
+gem "config"
+gem "bcrypt", ">= 3.1.11"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -40,6 +41,7 @@ group :development do
 end
 
 group :production do
+  gem "pg"
 end
 
 group :test do
