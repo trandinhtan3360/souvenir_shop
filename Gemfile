@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -12,7 +12,7 @@ gem "bootstrap-will_paginate", "~> 1.0"
 gem "bcrypt-ruby", "3.1.5", :require => "bcrypt"
 gem "puma", "~> 3.7"
 gem "sass-rails", "~> 5.0"
-gem "uglifier', '>= 1.3.0"
+gem "uglifier", ">= 1.3.0"
 gem "will_paginate"
 gem "will_paginate-bootstrap", "~> 1.0", ">= 1.0.1"
 gem "coffee-rails", "~> 4.2"
@@ -40,5 +40,13 @@ group :development do
 end
 
 group :production do
-end 
+end
+
+group :test do
+  gem "rubocop"
+  gem "rubocop-checkstyle_formatter"
+  gem "saddler"
+  gem "saddler-reporter-github"
+end
+
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
