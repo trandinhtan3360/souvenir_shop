@@ -1,34 +1,30 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
   title: SouvenirShop"
+  static_pages:
+    home:
+      hello: "Hello world"
+      title: SouvenirShop"
+      title_web: "FramGia Company"
+      404_page: "404 page"
+      404_a: "404"
+      search: "search"
+      home: "home"
+      product: "product"
+      sale: "sale"
+      contact: "contact"
+      404 Not Found: "404 Not Found"
+      err_not_found: "Sorry, an error has occured, Requested page not found!"
+      Take Me Home: "Take Me Home"
+      Contact Support: "Contact Support"
+      tile image: "rss feed"
+      Quả Cầu Tuyết Thủy Tinh: "Quả Cầu Tuyết Thủy Tinh"
+      Chất liệu thủy tinh, đá nhân tạo: "Chất liệu: thủy tinh, đá nhân tạo"
+      Kích thước 15x10cm: "Kích thước: 15x10cm."
+      Thiết kế có chức năng phát nhạc, trong quả cầu có ánh kim tạo hiệu ứng đẹp mắt: "Thiết kế: có chức năng phát nhạc, trong quả cầu có
+                              ánh kim tạo hiệu ứng đẹp mắt"
+      Sản Phẩm Mới nhất: "Sản Phẩm Mới nhất"
+      Quà Cưới: "Quà Cưới"
+      $20.00: "$20.00"
+      $30.00: "$30.00"
+      Oops: "Oops!"
