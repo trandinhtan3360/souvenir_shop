@@ -20,6 +20,9 @@ ActiveRecord::Schema.define(version: 20170626035327) do
     t.index ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
   end
 
+
+ActiveRecord::Schema.define(version: 20170621073803) do
+
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "email"
@@ -30,5 +33,4 @@ ActiveRecord::Schema.define(version: 20170626035327) do
     t.string "password"
     t.boolean "admin", default: false
   end
-
 end

@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
+
+  def new
+  end
+
   def create
     user = User.find_by email: params[:session][:email]
     if user && user.authenticate(params[:session][:password])
-      login_url user
-      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      flash.now[:succes] = t(".message_sigin")
+      log_in user
+      flash[:success] =  t(".message_sigin")
       redirect_to user
     else
       flash.now[:danger] = t(".error_message")

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% provide(:title, t(".sign_in")) %>
 <% provide(:button_text, t(".create_my_account")) %>
 <h1 class="center"><%= t("t.sign_in")%></h1>
@@ -6,3 +7,30 @@
     <%= render 'form' %>
   </div>
 </div>
+=======
+<% provide(:title, t(".sign_up")) %>
+<h1 class="center"><%= t(".sign_up") %></h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3"> 
+  <%= form_for @user do |f| %>
+    <%= render "shared/error_messages" %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control" %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+
+    <%= f.submit t(".create_my_account"), class: "btn btn-primary" %>
+  <% end %>
+  </div>
+</div>
+
+>>>>>>> 6e4beb7502bcacef54bf9cd8e8f46c1508fce42b
