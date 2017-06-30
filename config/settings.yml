@@ -2,3 +2,5 @@ size_user: 80
 size: 80
 maximum: 50
 minimum: 6
+maximum_micropost: 140
+number_page: 10
