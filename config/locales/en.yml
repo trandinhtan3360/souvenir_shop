@@ -36,5 +36,7 @@ en:
         name: "name"
         error_message: "Invalid email/password combination"
         sign_up: "Sign up"
-
-
+        new_user: "New User ?"
+        title_website: "Ban hang online"
+        delete: "delete"
+        user_all: "User can edit, show and update"
