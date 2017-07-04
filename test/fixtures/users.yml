@@ -1,11 +1,21 @@
-michael:
-  name: Michael Example
-  email: michael@example.com
-  password_digest: <%= User.digest('password') %>
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-archer:
-  name: Sterling Archer
-  email: duchess@example.gov
-  password_digest: <%= User.digest('password') %>
+one:
+  username: MyString
+  password: MyString
+  email: MyString
+  phone: MyString
+  address: MyString
+  role: 
+  password_digest: MyString
+  remember_digest: MyString
 
-  
+two:
+  username: MyString
+  password: MyString
+  email: MyString
+  phone: MyString
+  address: MyString
+  role: 
+  password_digest: MyString
+  remember_digest: MyString
