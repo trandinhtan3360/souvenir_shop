@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source "http://rubygems.org"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -20,6 +20,14 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "mysql2"
 gem "config"
+gem 'activeadmin', git: "git://github.com/gregbell/active_admin.git"
+gem "inherited_resources", github: "activeadmin/inherited_resources"
+gem "devise"
+gem "cancan" 
+gem "draper"
+gem "pundit"
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
+gem "rails_admin"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
