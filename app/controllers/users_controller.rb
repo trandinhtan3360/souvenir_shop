@@ -1,9 +1,19 @@
 class UsersController < ApplicationController
-  def show
-    @user = User.find_by params[:id]
-    if @user.blank? 
-      render 404
+  before_action :logged_in_user, except: [:show, :new, :create]
+  before_action :correct_user, only: [:edit, :update]
+  before_action :verify_admin, only: :destroy
+  before_action :load_user, only: [:show, :edit, :update]
+  
+  def index
+    @users = User.newest.paginate(page: params[:page]).per_page Settings.number_page
+    if @users.empty?
+      render file: "static_pages/404"
+    else
+      @users      
     end
+  end
+
+  def show
   end
 
   def new
@@ -11,19 +21,47 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new user_params   # Not the final implementation!
+    @user = User.new user_params 
     if @user.save
-      flash[:success] =  t(".message_sigin")
+      flash[:success] =  t ".message_sigin"
       redirect_to @user
     else
-      render :new
+      render file: "static_pages/home"
+    end
+  end
+  
+  def edit
+  end
+
+  def update
+    unless  @user.present?
+      @user.update_attributes user_params
+      flash[:success] = t ".update_profile"
+        redirect_to @user
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @user = User.find_by id: params[:id].destroy
+    if @user.empty?
+      render file: "static_pages/home"
+    else
+      flash[:success] = t ".user_delete"
+      redirect_to users_url
     end
   end
 
   private
     def user_params
-      params.require(:user).permit :name, :email, :password,
-        :password_confirmation
+      params.require(:user).permit :name, :email, :password, :password_confirmation
+    end
+
+    def load_user
+      unless @user
+        flash[:danger] = t ".user_all"
+        redirect_to users_url
+      end
     end
 end
-
