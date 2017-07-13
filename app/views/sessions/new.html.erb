@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= t ".404-page"%>
+    </title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="h-bg">
+        <div class="header">
+          <div class="header-right">
+            <ul class="follow_icon">
+              <li>
+                <a href="#">
+                  <%= image_tag( "image/co-nb.png", alt: "rss feed") %></a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= image_tag( "image/lo-pn.png", alt: "rss feed") %></a>
+              </li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+          <div class="header-bot">
+            <div class="logo">
+              <a href="#">
+                <%= image_tag( "image/logo.png") %>
+              </a>
+            </div>
+            <div class="search">
+              <input type="text" class="textbox" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+              <button class="gray-button"><span><%= t(".search")%></span>
+              </button>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+
+        <div class="menu">
+          <div class="top-nav">
+            <ul>
+              <li class="#">
+                <a href="index.html">
+                  <%= t ".home"%>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= t ".product" %>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= t".sale" %>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= t ".contact" %>
+                </a>
+              </li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <h1 class="center"><%= t ".login" %></h1>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <%= form_for(:session, url: login_path) do |f| %>
+
+              <%= f.label :email %>
+              <%= f.email_field :email, class: "form-control" %>
+
+              <%= f.label :password %>
+              <%= link_to "(forgot password)", new_password_reset_path %>
+              <%= f.password_field :password, class: "form-control" %>
+
+              <%= f.label :remember_me, class: "checkbox inline" do %>
+                <%= f.check_box :remember_me %>
+                <span><%= t ".remember_me" %></span>
+              <% end %>
+
+              <%= f.submit t(".login"), class: "btn btn-primary" %>
+            <% end %>
+
+            <p><%= t ".new_user" %> <%= link_to t(".sign_up_link"), signup_path %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

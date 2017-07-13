@@ -5,21 +5,25 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem "rails", "~> 5.1.1"
-gem "bootstrap-sass"
-gem "faker",          "1.7.3"
-gem "bootstrap-will_paginate", "~> 1.0"
 gem "bcrypt-ruby", "3.1.5", :require => "bcrypt"
-gem "puma", "~> 3.7"
-gem "sass-rails", "~> 5.0"
-gem "uglifier", ">= 1.3.0"
-gem "will_paginate"
-gem "will_paginate-bootstrap", "~> 1.0", ">= 1.0.1"
+gem "bootstrap-sass", '~> 3.3.6'
+gem "bootstrap-will_paginate", "~> 1.0"
+gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
-gem "turbolinks", "~> 5"
-gem "jbuilder", "~> 2.5"
-gem "mysql2"
 gem "config"
+gem "devise"
+gem "dropzonejs-rails"
+gem "faker", "1.7.3"
+gem "jbuilder", "~> 2.5"
+gem "mini_magick"
+gem "mysql2"
+gem "puma", "~> 3.7"
+gem "rails", "~> 5.1.1"
+gem "remotipart", github: "mshibuya/remotipart"
+gem "sass-rails"
+gem "turbolinks"
+gem "uglifier", ">= 1.3.0"
+gem "font-awesome-sass"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
@@ -28,7 +32,7 @@ group :development, :test do
   gem "rails-controller-testing", "1.0.2"
   gem "minitest-reporters",       "1.1.14"
   gem "guard",                    "2.13.0"
-  gem "guard-minitest",           "2.4.4"
+  gem "guard-minitest",           "2.4.4"  
 end
 
 group :development do
