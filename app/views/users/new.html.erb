@@ -1,25 +1,78 @@
-<% provide(:title, t(".sign_up")) %>
-<h1 class="center"><%= t(".sign_up") %></h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= t ".404-page"%>
+    </title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="h-bg">
+        <div class="header">
+          <div class="header-right">
+            <ul class="follow_icon">
+              <li>
+                <a href="#">
+                  <%= image_tag( "image/co-nb.png", alt: "rss feed") %></a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= image_tag( "image/lo-pn.png", alt: "rss feed") %></a>
+              </li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+          <div class="header-bot">
+            <div class="logo">
+              <a href="#">
+                <%= image_tag( "image/logo.png") %>
+              </a>
+            </div>
+            <div class="search">
+              <input type="text" class="textbox" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+              <button class="gray-button"><span><%= t(".search")%></span>
+              </button>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3"> 
-  <%= form_for @user do |f| %>
-    <%= render "shared/error_messages" %>
-
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
-
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control" %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "form-control" %>
-
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation, class: "form-control" %>
-
-    <%= f.submit t(".create_my_account"), class: "btn btn-primary" %>
-  <% end %>
-  </div>
-</div>
-
+        <div class="menu">
+          <div class="top-nav">
+            <ul>
+              <li class="#">
+                <a href="index.html">
+                  <%= t ".home"%>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= t ".product" %>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= t".sale" %>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= t ".contact" %>
+                </a>
+              </li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <%= provide :title, t(".sign_in" ) %>
+        <%= provide :button_text, t(".create_my_account") %>
+        <h1 class="center"><%= t ".sign_in" %></h1>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <%= render 'form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
