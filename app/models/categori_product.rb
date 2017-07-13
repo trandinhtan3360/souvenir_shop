@@ -1,4 +1,4 @@
 class CategoriProduct < ApplicationRecord
-  belogs_to: categori 
-  belogs_to: product  
+  belongs_to :categori 
+  belongs_to :product  
 end

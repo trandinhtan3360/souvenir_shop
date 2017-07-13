@@ -1,0 +1,86 @@
+<div class="wrapper">
+  <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <div class="sidebar-wrapper">
+      <ul class="nav">
+        <li class="active">
+          <%= link_to t(".user"), admin_users_path %>
+          <i class="pe-7s-user"></i>
+        </li>
+        <li class="active">
+          <%= link_to t(".product"), admin_products_path %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-panel">
+    <nav class="navbar navbar-default navbar-fixed">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#navigation-example-2">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="#"><%= t ".category" %></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <p><%= link_to t(".account"), "#" %></p>
+            </li>
+            <% if logged_in? %>
+              <li><%= link_to t(".users"), "#" %></li>
+              <li class="dropdown">
+                <li><%= link_to t(".profile"), edit_user_path(current_user) %></li>
+                <li><%= link_to t(".log_out"), logout_path, method: :delete %></li>
+              </li>
+            <% else %>
+              <li><%= link_to t(".log_in"), login_path %></li>
+            <% end %>
+             <li class="separator hidden-lg hidden-md"></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <section class="user_info">
+              <section class="user_info">
+                <h1>
+                  <%= @category %>
+                </h1>
+              </section>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container-fluid">
+        <nav class="pull-left">
+          <ul>
+            <li>
+              <%= link_to t(".home"), "#" %>
+            </li>
+            <li>
+              <%= link_to t(".company"), "#" %>
+            </li>
+            <li>
+              <%= link_to t(".portfolio"), "#" %>
+            </li>
+            <li>
+              <%= link_to t(".blog"), "#" %>
+            </li>
+          </ul>
+        </nav>
+        <p class="copyright pull-right">
+        <%= link_to t(".creative_tim"), "#" %>
+        <%= t ".footer_container" %>
+      </p>
+      </div>
+    </footer>
+  </div>
+</div>

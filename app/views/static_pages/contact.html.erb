@@ -1,111 +1,86 @@
-<!DOCTYPE HTML>
-<html>
-
-<head>
-  <title>
-    <%= t ".title-web" %>
-  </title>
-  <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
-</head>
-
-<body>
-  <div class="header-bg">
-    <div class="wrap">
-      <div class="h-bg">
-        <div class="total">
-          <div class="header">
-            <div class="header-right">
-              <ul class="follow_icon">
-                <li>
-                  <a href="#">
-                    <%= image_tag( "image/co-nb.png", :alt=> t(".title image")) %></a>
-                </li>
-                <li>
-                  <a href="#">
-                    <%= image_tag( "image/lo-pn.png",:alt=> t(".title image")) %></a>
-                </li>
-              </ul>
+<title><%= t ".title-web" %></title>
+<div class="header-bg">
+  <div class="wrap">
+    <div class="h-bg">
+      <div class="total">
+        <div class="header">
+          <div class="header-right">
+            <ul class="follow_icon">
+              <li>
+                <a href="#">
+                  <%= image_tag("image/co-nb.png", :alt=> t(".title image")) %></a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= image_tag("image/lo-pn.png",:alt=> t(".title image")) %></a>
+              </li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+          <div class="header-bot">
+            <div class="logo">
+              <a href="#">
+                <%= image_tag("image/logo.png") %>
+              </a>
+            </div>
+            <div class="search">
+              <input type="text" class="textbox" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+              <button class="gray-button"><span><%= t ".search" %></span>
+              </button>
             </div>
             <div class="clear"></div>
-            <div class="header-bot">
-              <div class="logo">
-                <a href="#">
-                  <%= image_tag( "image/logo.png") %>
-                </a>
-              </div>
-              <div class="search">
-                <input type="text" class="textbox" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
-                <button class="gray-button"><span>Search</span>
-                </button>
-              </div>
-              <div class="clear"></div>
-            </div>
           </div>
-          <div class="menu">
-            <div class="top-nav">
-              <ul>
-                <li class="#">
-                  <a href="index.html">
-                    <%= t ".home" %>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <%= t ".product" %>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <%= t ".sale" %>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <%= t ".contact" %>
-                  </a>
-                </li>
-              </ul>
-              <div class="clear"></div>
-            </div>
+        </div>
+        <div class="menu">
+          <div class="top-nav">
+            <ul>
+              <li class="#">
+                <%= link_to t(".home"), "#" %>
+              </li>
+              <li>
+                 <%= link_to t(".product"), "#" %>
+              </li>
+              <li>
+                <%= link_to t(".sale"), "#" %>
+              </li>
+              <li>
+                <%= link_to t ".contact" %>
+              </li>
+            </ul>
+            <div class="clear"></div>
           </div>
-          <div class="banner-top">
-            <div class="header-bottom">
-              <div class="header_bottom_right_images">
-                <div class="about_wrapper">
-                  <h1>Thong tin Lien he</h1>
-                </div>
-                <div class="section group">
-                  <div class="col span_2_of_c">
-                    <div class="contact-form">
-                      <h3>Contact Us</h3>
-                      <form method="post" action="contact-post.html">
-                        <div>
-                          <span><label>NAME</label></span>
-                          <span><input name="userName" type="text" class="textbox"></span>
-                        </div>
-                        <div>
-                          <span><label>E-MAIL</label></span>
-                          <span><input name="userEmail" type="text" class="textbox"></span>
-                        </div>
-                        <div>
-                          <span><label>MOBILE</label></span>
-                          <span><input name="userPhone" type="text" class="textbox"></span>
-                        </div>
-                        <div>
-                          <span><label>SUBJECT</label></span>
-                          <span><textarea name="userMsg"> </textarea></span>
-                        </div>
-                        <div>
-                          <span><input type="submit" value="Submit"></span>
-                        </div>
-                      </form>
-                    </div>
+        </div>
+        <div class="banner-top">
+          <div class="header-bottom">
+            <div class="header_bottom_right_images">
+              <div class="section group">
+                <div class="col span_2_of_c">
+                  <div class="contact-form">
+                    <h3><%= t ".contact"%></h3>
+                    <form method="post" action="contact-post.html">
+                      <div>
+                        <span><label><%= t ".name" %></label></span>
+                        <span><input name="userName" type="text" class="form-control"></span>
+                      </div>
+                      <div>
+                        <span><label><%= t ".email" %></label></span>
+                        <span><input name="userEmail" type="text" class="form-control"></span>
+                      </div>
+                      <div>
+                        <span><label><%= t ".phone" %></label></span>
+                        <span><input name="userPhone" type="text" class="form-control"></span>
+                      </div>
+                      <div>
+                        <span><label><%= t ".container" %></label></span>
+                        <span><textarea class="form-control" name="userMsg"> </textarea></span>
+                      </div>
+                      <div>
+                        <span><input type="submit" value="Submit"></span>
+                      </div>
+                    </form>
                   </div>
-                  <div class="clear"></div>
                 </div>
+                <div class="clear"></div>
               </div>
             </div>
           </div>
@@ -113,6 +88,5 @@
       </div>
     </div>
   </div>
-</body>
+</div>
 
-</html>

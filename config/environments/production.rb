@@ -53,14 +53,41 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
-
+  # config.action_mailer.raise_delivery_errors = false
+  # config.action_mailer.delivery_method = :smtp
+  # s = { host: "warm-sea-11246.herokuapp.com" }
+  # config.action_mailer.perform_caching = false
+  # config.action_mailer.smtp_settings = {
+  #      :address => "smtp.gmail.com",
+  #      :port => 587,
+  #      :authentication => :plain,
+  #      :user_name => "trandinhtan.web@gmail.com",
+  #      :password => "01673483360Tan",
+  #      :domain => "gmail.com",
+  #      :enable_starttls_auto => true
+  # }
   # Use a different cache store in production.
+  config.action_mailer.raise_delivery_errors = false
+   # Don't use this literally; use your local dev host instead
+  config.action_mailer.default_url_options = {host: "warm-sea-11246.herokuapp.com"}
+  config.action_mailer.perform_caching = false
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    pusher.address = ENV["pusher_address"]
+    pusher.port = ENV["pusher_port"]
+    pusher.user_name = ENV["pusher_user_name"]
+    pusher.password  = ENV["pusher_password"]
+    pusher.authentication = ENV["pusher_authemtication"]
+    pusher.domain = ENV["pusher_domain"]
+    pusher.enable_starttls_auto = ENV["pusher_enable_starttls_auto"]
+  }
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "Souvenir_shop_#{Rails.env}"
-  config.action_mailer.perform_caching = false
+  # config.active_job.queue_name_prefix = "ruby-on-rails_#{Rails.env}"
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

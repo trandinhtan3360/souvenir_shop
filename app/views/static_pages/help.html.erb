@@ -1,23 +1,76 @@
-<div class="container">
+<title><%= t "static_pages.home.title_web" %></title>
+<div class="header-bg">
+  <div class="wrap">
+    <div class="h-bg">
+      <div class="total">
+        <div class="header">
+          <div class="header-right">
+            <ul class="follow_icon">
+              <li>
+                <a href="#">
+                <%= image_tag("image/co-nb.png", alt:t(".title image" ))%></a>
+              </li>
+              <li>
+                <a href="#">
+                <%= image_tag("image/lo-pn.png", alt:t(".title image")) %></a>
+              </li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+          <div class="header-bot">
+            <div class="logo">
+              <a href="#">
+              <%= image_tag("image/logo.png") %>
+              </a>
+            </div>
+            <div class="search">
+              <input type="text" class="textbox" value=""">
+              <button class="gray-button"><span><%= t ".search" %></span>
+              </button>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <div class="menu">
+          <div class="top-nav">
+            <ul>
+              <li class="#">
+                <%= link_to t(".home"), root_path%>
+              </li>
+              <li>
+                <%= link_to  t(".product"), products_path %>
+              </li>
+              <li>
+                <a href="#">
+                <%= t ".sale" %>
+                </a>
+              </li>
+              <li>
+                <%= link_to t(".contact"), static_pages_contact_path %>
+              </li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
-          <div class="error-template">
-              <h1><%= t ".oops" %></h1>
-              <h2><%= t ".404_not_found" %></h2>
-              <div class="error-details">
-                  <%= t ".error_request" %>
-              </div>
-              <div class="error-actions">
-                <a href="http://www.jquery2dotnet.com" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                    <%= t ".take_me_home " %>
-                </a>
-                <a href="http://www.jquery2dotnet.com" class="btn btn-default btn-lg">
-                  <span class="glyphicon glyphicon-envelope"></span>
-                  <%= t ".contact_support" %>
-                </a>
-              </div>
+        <div class="error-template">
+          <h1><%= t ".oops" %></h1>
+          <h2><%= t ".404_not_found" %></h2>
+          <div class="error-details">
+            <%= t ".error_request" %>
           </div>
+          <div class="error-actions">
+            <%= link_to t(".take_me_home"), "http://www.jquery2dotnet.com" %>
+            <%= link_to t(".contact_support"), "http://www.jquery2dotnet.com" %>
+          </div>
+        </div>
       </div>
+    </div>
   </div>
 </div>
 

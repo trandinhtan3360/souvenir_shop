@@ -28,9 +28,21 @@ Rails.application.configure do
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.delivery_method = :test
+  host = 'localhost:3000'   # Don't use this literally; use your local dev host instead
+  config.action_mailer.default_url_options = {:host => 'localhost:3000'}
   config.action_mailer.perform_caching = false
 
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    pusher.address = ENV["pusher_address"]
+    pusher.port = ENV["pusher_port"]
+    pusher.user_name = ENV["pusher_user_name"]
+    pusher.password  = ENV["pusher_password"]
+    pusher.authentication = ENV["pusher_authemtication"]
+    pusher.enable_starttls_auto = ENV["pusher_enable_starttls_auto"]
+  }
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -52,3 +64,4 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
+Rails.application.routes.default_url_options[:host] = 'domain.com'

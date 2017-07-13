@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :comment
+  has_many :comments
   has_many :orders 
   has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :passwords
