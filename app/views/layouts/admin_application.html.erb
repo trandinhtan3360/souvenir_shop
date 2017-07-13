@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application_admin", media: "all", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application_admin", "data-turbolinks-track": "reload" %>
+    
+  </head>
+  <body>
+    <!-- <header class="navbar navbar-fixed-top">
+      <div class="container">
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Trang Chu", root_path %></li>
+            <li><%= link_to "Help", static_pages_help_path %></li>
+            <% if logged_in? %>
+              <li><%= link_to "Users", '#' %></li>
+              <li class="dropdown">
+                <li><%= link_to "Profile",  edit_user_path(current_user) %></li>
+                <li><%= link_to "Log out", logout_path, method: :delete %></li>
+              </li>
+            <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header> -->
+    <div class="container">
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+  </body>
+</html>

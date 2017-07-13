@@ -1,3 +1,3 @@
 class OrderDetail < ApplicationRecord
-  belogs_to :order
+  belongs_to :order
 end

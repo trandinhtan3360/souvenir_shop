@@ -10,23 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+ActiveRecord::Schema.define(version: 20170712003000) do
 
-ActiveRecord::Schema.define(version: 20170626035327) do
-
-  create_table "categori_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "categori_id"
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["categori_id"], name: "index_categori_products_on_categori_id"
-    t.index ["product_id"], name: "index_categori_products_on_product_id"
-  end
-
-  create_table "categoris", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name"
     t.string "sort_order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "category_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "category_id"
+    t.bigint "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_category_products_on_category_id"
+    t.index ["product_id"], name: "index_category_products_on_product_id"
   end
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -82,6 +81,7 @@ ActiveRecord::Schema.define(version: 20170626035327) do
     t.integer "view"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image"
   end
 
   create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -103,11 +103,16 @@ ActiveRecord::Schema.define(version: 20170626035327) do
     t.string "address"
     t.string "role"
     t.string "password_digest"
+    t.string "remember_digest"
+    t.boolean "admin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
     t.string "reset_digest"
-    t.string "password"
-    t.boolean "admin", default: false
   end
 
-  add_foreign_key "categori_products", "categoris"
-  add_foreign_key "categori_products", "products"
+  add_foreign_key "category_products", "categories"
+  add_foreign_key "category_products", "products"
 end

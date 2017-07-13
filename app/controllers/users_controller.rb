@@ -3,15 +3,6 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :verify_admin, only: :destroy
   before_action :load_user, only: [:show, :edit, :update]
-  
-  def index
-    @users = User.newest.paginate(page: params[:page]).per_page Settings.number_page
-    if @users.empty?
-      render file: "static_pages/404"
-    else
-      @users      
-    end
-  end
 
   def show
   end
@@ -20,24 +11,30 @@ class UsersController < ApplicationController
     @user = User.new 
   end
 
+  def index
+    @users = User.all
+  end
+
   def create
     @user = User.new user_params 
     if @user.save
-      flash[:success] =  t ".message_sigin"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "Please check your email to activate your account." 
+      redirect_to login_url
     else
-      render file: "static_pages/home"
+      flash[:danger] =  t ".fails"
+      render :new
     end
   end
   
   def edit
+     @user = User.find params[:id]
   end
 
   def update
-    unless  @user.present?
-      @user.update_attributes user_params
+    if @user.update_attributes user_params 
       flash[:success] = t ".update_profile"
-        redirect_to @user
+      redirect_to @user
     else
       render :edit
     end
@@ -55,7 +52,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit :name, :email, :password, :password_confirmation
+      params.require(:user).permit :username, :email, :password, :password_confirmation, :phone
     end
 
     def load_user
@@ -63,5 +60,10 @@ class UsersController < ApplicationController
         flash[:danger] = t ".user_all"
         redirect_to users_url
       end
+    end
+
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless @user == current_user
     end
 end

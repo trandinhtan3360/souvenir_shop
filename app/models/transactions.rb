@@ -1,4 +1,4 @@
 class Transactions < ApplicationRecord
-  belogs_to :orders 
-  belogs_to :payment_method
+  belongs_to :order
+  belongs_to :payment_method
 end

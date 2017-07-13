@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= t ".404-page"%>
+    </title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="h-bg">
+        <div class="header">
+          <div class="clear"></div>
+          <div class="header-bot">
+            <div class="logo">
+              <a href="#">
+                <%= image_tag( "image/logo.png") %>
+              </a>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+        <h1 class="center">Update your profile</h1>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
+            <%= form_for(@user) do |f| %>
+              <%= render 'shared/error_messages' %>
+
+              <%= f.label :username %>
+              <%= f.text_field :username, class: "form-control" %>
+
+              <%= f.label :email %>
+              <%= f.email_field :email, class: "form-control" %>
+
+              <%= f.label :password %>
+              <%= f.password_field :password, class: "form-control" %>
+
+              <%= f.label :password_confirmation, "Confirmation" %>
+              <%= f.password_field :password_confirmation, class: "form-control" %>
+
+              <%= f.submit t(".save_changes"), class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+

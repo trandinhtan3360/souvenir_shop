@@ -1,7 +1,109 @@
-<% provide :title, t ".all_user" %>
-<h1 class="center"><%= t" .all_user" %></h1>
-<%= will_paginate %>
-<ul class="users">
-   <%= render @users %>
-</ul>
-<%= will_paginate %>
+<% provide(:title, "danh sach ") %>
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      <%= t ".404-page"%>
+    </title>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="h-bg">
+        <div class="header">
+          <div class="header-right">
+            <ul class="follow_icon">
+              <li>
+                <a href="#">
+                  <%= image_tag( "image/co-nb.png", alt: "rss feed") %></a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= image_tag( "image/lo-pn.png", alt: "rss feed") %></a>
+              </li>
+            </ul>
+          </div>
+          <div class="clear"></div>
+          <div class="header-bot">
+            <div class="logo">
+              <a href="#">
+                <%= image_tag( "image/logo.png") %>
+              </a>
+            </div>
+            <div class="search">
+              <input type="text" class="textbox" value="" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '';}">
+              <button class="gray-button"><span><%= t(".search")%></span>
+              </button>
+            </div>
+            <div class="clear"></div>
+          </div>
+        </div>
+
+        <div class="menu">
+          <div class="top-nav">
+            <ul>
+              <li class="#">
+                <a href="index.html">
+                  <%= t ".home"%>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= t ".product" %>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= t".sale" %>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <%= t ".contact" %>
+                </a>
+              </li>
+            </ul>
+            <div class="clear"></div>
+          </div>
+        </div>
+          <aside class="col-md-4">
+            <section class="user_info">
+              <table class="table table-striped">
+                <tr>
+                <td><h3>Id</h3></td>
+                  <td><h3>Name</h3></td>
+                  <td><h3>Email</h3></td>
+                  <td><h3>Activated</h3></td>
+                  <td><h3>Activated_at</h3></td>
+                  <td><h3>Phone</h3></td>
+                </tr>
+                 <% @users.each do |user|%>
+                  <tr>
+                    <td>
+                      <%= user.id%>
+                    </td>
+                    <td>
+                       <%= user.username%>
+                    </td>
+                    <td>
+                      <%= user.email %>
+                    </td>
+                    <td>
+                      <%= user.activated%>
+                    </td>
+                    <td>
+                      <%= user.activated_at%>
+                    </td>
+                    <td>
+                      <%= user.phone%>
+                      <% end%>
+                    </td>
+                </tr>
+              </table>
+            </section>
+          </aside>
+      </div>
+    </div>
+  </body>
+</html>
