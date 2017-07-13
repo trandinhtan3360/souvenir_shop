@@ -14,7 +14,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def verify_admin
-    redirect_to(root_url) unless current_user.admin?
+  protected
+  def require_admin
+    unless current_user.admin?
+      flash[:danger] = t ".not_admin"
+      redirect_to root_path
+    end
   end
 end

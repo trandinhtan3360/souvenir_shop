@@ -1,0 +1,81 @@
+<%= provide(:title, t ".index") %>
+<div class="wrapper">
+  <div class="main-panel">
+    <nav class="navbar navbar-default navbar-fixed">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#"><%= t ".user" %></a>
+        </div>
+        <div class="collapse navbar-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+               <%= link_to  t(".account"), "#" %>
+            </li>
+            <% if current_user.admin? %>
+              <li>
+                <%= link_to t(".product"), new_admin_product_path %>
+                <i class="pe-7s-graph"></i>
+              </li>
+              <li class="active">
+                <%= link_to t(".user"), admin_users_path %>
+                <i class="pe-7s-user"></i>
+              </li>
+            <% end %>
+            <% if logged_in? %>
+              <li><%= link_to t(".users"), "#" %></li>
+              <li class="dropdown">
+                <li><%= link_to t(".profile"), edit_user_path(current_user) %></li>
+                <li><%= link_to t(".logout"), logout_path, method: :delete %></li>
+              </li>
+            <% else %>
+              <li><%= link_to t(".login"), login_path %></li>
+            <% end %>
+             <li class="separator hidden-lg hidden-md"></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <section class="user_info">
+              <table class="table table-striped">
+                <tr>
+                  <td><h3><%= t ".id" %></h3></td>
+                  <td><h3><%= t ".name" %></h3></td>
+                  <td><h3><%= t ".email" %></h3></td>
+                  <td><h3><%= t ".edit" %></h3></td>
+                  <td><h3><%= t ".delete" %></h3></td>
+                </tr>
+                <% @users.each do |user| %>
+                  <tr>
+                    <td>
+                      <%= user.id %>
+                    </td>
+                    <td>
+                       <%= link_to user.username, edit_admin_user_path(current_user) %>
+                    </td>
+                    <td>
+                      <%= user.email %>
+                    </td>
+                    <td>
+                      <%= link_to t(".edit"), edit_user_path(current_user) %>
+                    </td>
+                    <td>
+                      <%= link_to t(".delete"), user, method: :destroy,
+                        confirm: t(".you_sure"), title: "t(".delete") #{user.username}" %>
+                    </td>
+                  </tr>
+                <% end %>
+              </table>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <%= render "layouts/footer" %>
+    </footer>
+  </div>
+</div>

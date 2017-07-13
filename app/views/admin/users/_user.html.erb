@@ -1,0 +1,8 @@
+<% unless current_user? user %>
+  <li>
+    <%= gravatar_for user, size: Settings.minimum %>
+    <%= link_to user.username, user %>
+    <%= link_to t(".delete"), user, method: :delete, data:{confirm: t(".message_delete")} %>
+    <%= link_to t(".edit"), user, method: :edit  data:{confirm: t(".message_edit")} %>
+  </li>
+<% end %>

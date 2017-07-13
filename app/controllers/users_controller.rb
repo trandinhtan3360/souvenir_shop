@@ -1,35 +1,26 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, except: [:show, :new, :create]
   before_action :correct_user, only: [:edit, :update]
-  before_action :verify_admin, only: :destroy
-  before_action :load_user, only: [:show, :edit, :update]
-  
-  def index
-    @users = User.newest.paginate(page: params[:page]).per_page Settings.number_page
-    if @users.empty?
-      render file: "static_pages/404"
-    else
-      @users      
-    end
-  end
+  before_action :load_user, except: [:new, :create, :index]
 
   def show
   end
 
   def new
-    @user = User.new 
+    @user = User.new
   end
 
   def create
-    @user = User.new user_params 
+    @user = User.new user_params
     if @user.save
-      flash[:success] =  t ".message_sigin"
+      flash[:success] = t ".message_sigin"
       redirect_to @user
     else
-      render file: "static_pages/home"
+      flash[:danger] = t ".unsuccessful_sigin"
+      render :new
     end
   end
-  
+
   def edit
   end
 
@@ -44,12 +35,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by id: params[:id].destroy
-    if @user.empty?
-      render file: "static_pages/home"
-    else
+    if @user.destroy
       flash[:success] = t ".user_delete"
-      redirect_to users_url
+      redirect_to users_path
+    else
+      flash[:danger] = t ".delete_user_empty"
+      render file: "static_pages/home"
     end
   end
 
@@ -59,9 +50,10 @@ class UsersController < ApplicationController
     end
 
     def load_user
+      @user = User.find_by id: params[:id]
       unless @user
         flash[:danger] = t ".user_all"
-        redirect_to users_url
+        @user
       end
     end
 end
