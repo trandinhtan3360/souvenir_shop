@@ -1,0 +1,42 @@
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <section class="user_info">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <td><h3><%= t ".id" %></h3></td>
+                <td><h3><%= t ".name" %></h3></td>
+                <td><h3><%= t ".price" %></h3></td>
+                <td><h3><%= t ".comment" %></h3></td>
+                <td><h3><%= t ".image" %></h3></td>
+              </tr>
+            </thead>
+          <tbody>
+            <% @product.each do |product| %>
+              <tr>
+                <td>
+                  <%= product.id %>
+                </td>
+                <td>
+                   <%= link_to product.name %>
+                </td>
+                <td>
+                  <%= product.price %>
+                </td>
+                <td>
+                  <%= product.comment %>
+                </td>
+                <td>
+                  <%= image_tag product.image_url.to_s %>
+                </td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

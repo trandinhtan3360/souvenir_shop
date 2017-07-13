@@ -4,3 +4,8 @@ maximum: 50
 minimum: 6
 maximum_micropost: 140
 number_page: 10
+image: 1
+link_to: http://www.creative-tim.com
+
+hours:
+  max: 2
