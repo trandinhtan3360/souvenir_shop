@@ -1,4 +1,5 @@
 class Comment < ApplicationRecord
-  belogs_to :user 
-  belogs_to :product
+  belongs_to :user 
+  belongs_to :product
+  has_many :orders, through: :user
 end

@@ -1,8 +1,9 @@
 class Order < ApplicationRecord
-  has_many :order_detail
+  has_many :order_details
   has_many :transactions
-  belogs_to :user
-  has_many :comment, through: :user
-  has_many :product, through: :order_detail
-  has_many :payment_method, through: :transactions
+  belongs_to :user
+  belongs_to :product
+  has_many :comments, through: :user
+  has_many :products, through: :order_detail
+  has_many :payment_methods, through: :transactions
 end

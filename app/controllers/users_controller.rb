@@ -3,34 +3,28 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
   before_action :verify_admin, only: :destroy
   before_action :load_user, only: [:show, :edit, :update]
-  
+
   def index
     @users = User.newest.paginate(page: params[:page]).per_page Settings.number_page
     if @users.empty?
       render file: "static_pages/404"
     else
-      @users      
+      @users
     end
   end
 
-  def show
-  end
-
   def new
-    @user = User.new 
+    @user = User.new
   end
 
   def create
-    @user = User.new user_params 
+    @user = User.new user_params
     if @user.save
       flash[:success] =  t ".message_sigin"
       redirect_to @user
     else
       render file: "static_pages/home"
     end
-  end
-  
-  def edit
   end
 
   def update
@@ -39,6 +33,7 @@ class UsersController < ApplicationController
       flash[:success] = t ".update_profile"
         redirect_to @user
     else
+      flash[:danger] = t ".you_cant_update_profile"
       render :edit
     end
   end
