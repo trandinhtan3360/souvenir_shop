@@ -2,12 +2,8 @@ class CreateProducts < ActiveRecord::Migration[5.1]
   def change
     create_table :products do |t|
       t.string :name
-      t.string :price
-      t.string :comment
-      t.integer :discount
-      t.string :image_link
-      t.string :images_list
-      t.integer :view
+      t.decimal :price, precision: 12, scale: 3
+      t.boolean :active
 
       t.timestamps
     end

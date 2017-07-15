@@ -2,10 +2,6 @@
 
 one:
   name: MyString
-  price: 9.99
-  active: false
 
 two:
   name: MyString
-  price: 9.99
-  active: false
