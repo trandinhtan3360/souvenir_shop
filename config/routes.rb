@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
+
+  #root "static_pages#home"
   get "static_pages/home"
   get "static_pages/404"
   get "static_pages/contact"
@@ -11,4 +12,9 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   match "/signup",  to: "users#new", via: "get"
   resources :users
+
+  resources :products, only: [:index]
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+  root to: "products#index"
 end

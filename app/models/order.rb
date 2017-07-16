@@ -1,8 +1,18 @@
 class Order < ApplicationRecord
-  has_many :order_detail
-  has_many :transactions
-  belogs_to :user
-  has_many :comment, through: :user
-  has_many :product, through: :order_detail
-  has_many :payment_method, through: :transactions
+  belongs_to :order_status
+  has_many :order_items
+  before_create :set_order_status
+  before_save :update_subtotal
+
+  def subtotal # tra ve tpng gia tri cua don hang
+    order_items.collect { |oi| oi.valid? ? (oi.quantity * oi.unit_price) : 0 }.sum
+  end
+private
+  def set_order_status #set product_id khoi tao hay chua 
+    self.order_status_id = true
+  end
+
+  def update_subtotal #luu tong gia tri cua viec order
+    self[:subtotal] = subtotal
+  end
 end
