@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  root "static_pages#home"
+  resources :products, only: [:index]
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+  root to: "products#index"
+  #root "static_pages#home"
   get "static_pages/home"
   get "static_pages/404"
   get "static_pages/contact"

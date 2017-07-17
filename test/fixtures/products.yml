@@ -2,18 +2,10 @@
 
 one:
   name: MyString
-  price: MyString
-  comment: MyString
-  discount: 1
-  image_link: MyString
-  images_list: MyString
-  view: 1
+  price: 9.99
+  active: false
 
 two:
   name: MyString
-  price: MyString
-  comment: MyString
-  discount: 1
-  image_link: MyString
-  images_list: MyString
-  view: 1
+  price: 9.99
+  active: false

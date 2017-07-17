@@ -1,9 +1,0 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  categori: one
-  product: one
-
-two:
-  categori: two
-  product: two
