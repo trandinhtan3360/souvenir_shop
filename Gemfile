@@ -20,6 +20,8 @@ gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "mysql2"
 gem "config"
+gem "social-share-button", "~> 0.10.0"
+gem "devise"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]

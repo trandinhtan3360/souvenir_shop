@@ -4,3 +4,14 @@ maximum: 50
 minimum: 6
 maximum_micropost: 140
 number_page: 10
+start_count_order: 0
+
+default:
+  top_new_products: 12
+  top_order_products: 12
+  number_of_order: 0
+  recently: 12
+  same_category: 10
+  round: 1
+  min_product: 0
+  quantity_cart_item: 1

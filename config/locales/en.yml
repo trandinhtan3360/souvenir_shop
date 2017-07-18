@@ -1,4 +1,23 @@
 en:
+  time:
+    formats:
+      short_date: "%m/%d/%Y"
+      short_time: "%H:%M"
+      date_format: "MM/DD/YYYY"
+  cart:
+    view_cart_all: "View all"
+    add_to_card: "Add to cart"
+    quantity: "Quantity"
+    price: "Price"
+    sub: "Sub"
+    add: "Add"
+    delete: "Delete"
+    vnd: " VND"
+    your_cart: "Your Cart!"
+    not_product: "Your Cart have't product, Please order product !"
+    view_product: "View products at here "
+    btn_view_product: "View product"
+    order_time_text: "Order time:"
     static_pages:
       home:
         hello: "Hello world"
@@ -40,3 +59,4 @@ en:
         title_website: "Ban hang online"
         delete: "delete"
         user_all: "User can edit, show and update"
+
