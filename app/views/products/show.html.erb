@@ -1,0 +1,21 @@
+<% provide(:title, @product.name) %>
+<div class="container">
+  <div class=" description_area row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <h1><%= @product.name %></h1>
+        <%= link_to image_tag ("image/sanpham.jpg", class: "" ) %>
+        <h1><%= @product.description %></h1>
+        <h1><%= @product.quantity %></h1>
+        <h1><%= @product.price %></h1>>
+      </section>
+    </aside>
+    <div class="interaction_area">
+      <%= link_to cart_path(@product.id), remote: true,
+        method: :put, class: "btn btn_add_to_cart btn-add" do %>
+        <span class="glyphicon glyphicon-shopping-cart"></span>
+        <%= t "cart.add_to_card" %>
+      <% end %>
+    </div>
+  </div>
+</div>

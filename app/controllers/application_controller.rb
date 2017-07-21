@@ -17,4 +17,12 @@ class ApplicationController < ActionController::Base
   def verify_admin
     redirect_to(root_url) unless current_user.admin?
   end
+
+  private
+  def create_cart
+    @cart = Cart.build_from_hash session[:cart]
+    @cart_group = @cart.items.group_by(&:shop_id).map  do |q|
+      {shop_id: q.first, items: q.second.each.map { |qn| qn }}
+    end
+  end
 end
