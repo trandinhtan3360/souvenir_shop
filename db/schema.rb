@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170626035327) do
+ActiveRecord::Schema.define(version: 20170704052627) do
 
   create_table "categori_products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "categori_id"
@@ -103,9 +102,9 @@ ActiveRecord::Schema.define(version: 20170626035327) do
     t.string "address"
     t.string "role"
     t.string "password_digest"
-    t.string "reset_digest"
-    t.string "password"
-    t.boolean "admin", default: false
+    t.string "remember_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "categori_products", "categoris"

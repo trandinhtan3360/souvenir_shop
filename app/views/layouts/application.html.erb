@@ -9,6 +9,12 @@
   </head>
 
   <body>
+    <p>
+      <%= link_to_unless I18n.locale == :en, t(".english"), locale: :en %>
+      |
+      <%= link_to_unless I18n.locale == :vn, t(".vietnam"), locale: :vn %>
+    </p>
+
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>
   </body>

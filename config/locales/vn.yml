@@ -1,0 +1,8 @@
+vn:
+  hello: "xin chào"
+  page:
+    index:
+      title: "hướng dẫn tạo web "
+      welcome: "chào mừng đến trang web"
+      english: "Tieng anh"
+      vietnam: "VietNam"

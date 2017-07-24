@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'set_language/english'
+
+  get 'set_language/vietnam'
+
   root "static_pages#home"
   get "static_pages/home"
   get "static_pages/404"
@@ -11,4 +15,8 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
   match "/signup",  to: "users#new", via: "get"
   resources :users
+
+  scope "(:locale)", :locale => /en|vn/ do
+    root "static_pages#home"
+  end
 end
